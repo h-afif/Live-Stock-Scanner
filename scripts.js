@@ -3,6 +3,7 @@ document.getElementById('stock-form').addEventListener('submit', function(event)
     const symbol = document.getElementById('symbol').value.toUpperCase();
     const startDate = document.getElementById('start-date').value;
     const endDate = document.getElementById('end-date').value;
+    const timeFrame = document.getElementById('time-frame').value; // Get selected time frame
     const apiKey = 'Itewa654mtL2zbYxg5l78qfRMiLa0cyq'; // Polygon.io API key
 
     // Define URLs for real-time and company profile data
@@ -24,7 +25,7 @@ document.getElementById('stock-form').addEventListener('submit', function(event)
         }
 
         // Extract data from profile data
-        const marketCap = profileData && profileData.marketCap; // Adjust field name based on API response
+        const marketCap = profileData.marketcap || profileData.marketCap || 'N/A'; // Adjust field name based on API response
         const sector = profileData && profileData.sector ? profileData.sector : 'N/A';
 
         const metrics = {
@@ -49,7 +50,7 @@ document.getElementById('stock-form').addEventListener('submit', function(event)
         tableHTML += '</table>';
 
         // Fetch historical data
-        const historicalUrl = `https://api.polygon.io/v2/aggs/ticker/${symbol}/range/1/day/${startDate}/${endDate}?apiKey=${apiKey}`;
+        const historicalUrl = `https://api.polygon.io/v2/aggs/ticker/${symbol}/range/${timeFrame}/${startDate}/${endDate}?apiKey=${apiKey}`;
         fetch(historicalUrl)
             .then(response => response.json())
             .then(historicalData => {
