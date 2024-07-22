@@ -1,6 +1,8 @@
 document.getElementById('stock-form').addEventListener('submit', function(event) {
     event.preventDefault();
     const symbol = document.getElementById('symbol').value.toUpperCase();
+    const startDate = document.getElementById('start-date').value;
+    const endDate = document.getElementById('end-date').value;
     const apiKey = 'Itewa654mtL2zbYxg5l78qfRMiLa0cyq'; // Polygon.io API key
 
     // Define URLs for real-time and company profile data
@@ -47,7 +49,7 @@ document.getElementById('stock-form').addEventListener('submit', function(event)
         tableHTML += '</table>';
 
         // Fetch historical data
-        const historicalUrl = `https://api.polygon.io/v2/aggs/ticker/${symbol}/range/1/day/2024-07-01/2024-07-21?apiKey=${apiKey}`;
+        const historicalUrl = `https://api.polygon.io/v2/aggs/ticker/${symbol}/range/1/day/${startDate}/${endDate}?apiKey=${apiKey}`;
         fetch(historicalUrl)
             .then(response => response.json())
             .then(historicalData => {
