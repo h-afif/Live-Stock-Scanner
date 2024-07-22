@@ -24,6 +24,15 @@
             <label for="end-date">End Date:</label>
             <input type="date" id="end-date" name="end-date" required>
 
+            <label for="time-frame">Time Frame:</label>
+            <select id="time-frame" name="time-frame">
+                <option value="1/minute">1 Minute</option>
+                <option value="1/hour">1 Hour</option>
+                <option value="1/day">1 Day</option>
+                <option value="1/week">1 Week</option>
+                <option value="1/month">1 Month</option>
+            </select>
+
             <button type="submit">Scan</button>
         </form>
         <div id="results" class="results">
