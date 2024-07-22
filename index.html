@@ -10,32 +10,30 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.17.0/xlsx.full.min.js"></script>
 </head>
 <body>
-    <div class="container">
-        <header>
-            <h1>Live Stock Scanner</h1>
-        </header>
-        <main>
-            <form id="stock-form">
-                <label for="symbol">Enter stock symbol:</label>
-                <input type="text" id="symbol" name="symbol" placeholder="AAPL" required>
-                
-                <label for="start-date">Start Date:</label>
-                <input type="date" id="start-date" name="start-date" required>
-                
-                <label for="end-date">End Date:</label>
-                <input type="date" id="end-date" name="end-date" required>
-                
-                <button type="submit">Scan</button>
-            </form>
-            <div id="results" class="results">
-                <!-- Results will be displayed here -->
-            </div>
-            <button id="download-excel" style="display: none;">Download as Excel</button>
-        </main>
-        <footer>
-            <p>&copy; 2024 Live Stock Scanner. All rights reserved.</p>
-        </footer>
-    </div>
+    <header>
+        <h1>Live Stock Scanner</h1>
+    </header>
+    <main>
+        <form id="stock-form">
+            <label for="symbol">Enter stock symbol:</label>
+            <input type="text" id="symbol" name="symbol" placeholder="AAPL" required>
+
+            <label for="start-date">Start Date:</label>
+            <input type="date" id="start-date" name="start-date" required>
+
+            <label for="end-date">End Date:</label>
+            <input type="date" id="end-date" name="end-date" required>
+
+            <button type="submit">Scan</button>
+        </form>
+        <div id="results" class="results">
+            <!-- Results will be displayed here -->
+        </div>
+    </main>
+    <footer>
+        <p>&copy; 2024 Live Stock Scanner. All rights reserved.</p>
+    </footer>
     <script src="scripts.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.17.4/xlsx.full.min.js"></script>
 </body>
 </html>
